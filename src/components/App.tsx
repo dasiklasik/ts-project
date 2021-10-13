@@ -11,14 +11,19 @@ function App() {
         <PageTitle title={'This is App component.'} />
         Article 1
         <Rating value={2} />
-        <Accordion title={'My menu'} />
+        <Accordion title={'My menu'} collapsed={false}/>
         Article 2
+        <Accordion title={'Users'} collapsed={true}/>
         <Rating value={3}/>
     </div>
   );
 }
 
-function PageTitle(props: any) {
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
     console.log('PageTitle rendering');
     return (
         <h1>{props.title}</h1>

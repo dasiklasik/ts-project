@@ -9,18 +9,14 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
     let [open, setOpen] = useState(false)
 
     const toggleAccordion = () => {
-        if (open) {
-            setOpen(false)
-        } else {
-            setOpen(true)
-        }
+        setOpen(!open)
     }
 
     return (
         <div>
             <AccordionTitle title={props.title}/>
             <button onClick={toggleAccordion}>TOGGLE</button>
-            {open ? <AccordionBody/> : false}
+            {open && <AccordionBody/>}
         </div>
     )
 }

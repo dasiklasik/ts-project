@@ -14,6 +14,7 @@ function App() {
     console.log('App rendering');
 
     const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4| 5>(0)
+    const [accordionOpen, setAccordionOpen] = useState<boolean>(false)
 
   return (
     <div>
@@ -24,7 +25,7 @@ function App() {
         {/*<PageTitle title={'This is App component.'} />*/}
         {/*Article 1*/}
 
-        {/*<Accordion title={'My menu'} collapsed={false}/>*/}
+        <Accordion title={'My menu'} open={accordionOpen} onClick={setAccordionOpen}/>
         {/*Article 2*/}
         {/*<Accordion title={'Users'} collapsed={true}/>*/}
         {/*<Rating value={3}/>*/}

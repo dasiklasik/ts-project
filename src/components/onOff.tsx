@@ -33,10 +33,14 @@ function OnOff({on, setOn, ...props}: OnnOffPropsType) {
         background: on ? 'green' : 'red'
     }
 
+    const onClickHandler = () => {
+        setOn(!on)
+    }
+
     return (
         <div>
-            <div style={onStyle} onClick={() => {setOn(!on) }}>On</div>
-            <div style={offStyle} onClick={() => {setOn(!on)}}>Off</div>
+            <div style={onStyle} onClick={onClickHandler}>On</div>
+            <div style={offStyle} onClick={onClickHandler}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     )

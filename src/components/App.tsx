@@ -5,6 +5,7 @@ import Rating from "./Rating";
 import OnOff from './onOff'
 import {UncontrolledAccordion} from "./UncontrolledAccordion";
 import {UncontrolledRating} from "./UncontrolledRating";
+import {UncontrolledOnOff} from "./UncontrolledOnOff";
 
 // type ratingValueType = {
 //     ratingValue: 0 | 1 | 2 | 3 | 4| 5
@@ -19,14 +20,15 @@ function App() {
 
   return (
     <div>
-        <OnOff on={on} setOn={setOn}/>
+        <UncontrolledOnOff onChange={setOn}/>
+        <div>{on.toString()}</div>
         {/*<UncontrolledAccordion title={'Menu'} />*/}
         {/*<UncontrolledRating/>*/}
-        <Rating value={ratingValue} setRatingValue={setRatingValue}/>
+        {/*<Rating value={ratingValue} setRatingValue={setRatingValue}/>*/}
         {/*<PageTitle title={'This is App component.'} />*/}
         {/*Article 1*/}
 
-        <Accordion title={'My menu'} open={accordionOpen} onClick={setAccordionOpen}/>
+        {/*<Accordion title={'My menu'} open={accordionOpen} onClick={setAccordionOpen}/>*/}
         {/*Article 2*/}
         {/*<Accordion title={'Users'} collapsed={true}/>*/}
         {/*<Rating value={3}/>*/}

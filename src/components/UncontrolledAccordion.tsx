@@ -8,14 +8,9 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
     console.log('Accordion rendering');
     let [open, setOpen] = useState(false)
 
-    const toggleAccordion = () => {
-        setOpen(!open)
-    }
-
     return (
         <div>
-            <AccordionTitle title={props.title}/>
-            <button onClick={toggleAccordion}>TOGGLE</button>
+            <AccordionTitle title={props.title} setOpen={setOpen} open={open}/>
             {open && <AccordionBody/>}
         </div>
     )
@@ -23,11 +18,13 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string
+    setOpen: (switcher: boolean) => void
+    open: boolean
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering');
-    return <h3>{props.title}</h3>
+    return <h3 onClick={() => props.setOpen(!props.open)}>{props.title}</h3>
 }
 
 function AccordionBody() {

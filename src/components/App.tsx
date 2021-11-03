@@ -15,10 +15,11 @@ function App() {
 
     const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4| 5>(0)
     const [accordionOpen, setAccordionOpen] = useState<boolean>(false)
+    let [on, setOn] = useState(false);
 
   return (
     <div>
-        {/*<OnOff/>*/}
+        <OnOff on={on} setOn={setOn}/>
         {/*<UncontrolledAccordion title={'Menu'} />*/}
         {/*<UncontrolledRating/>*/}
         <Rating value={ratingValue} setRatingValue={setRatingValue}/>

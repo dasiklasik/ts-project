@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
+    "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -20,9 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -53,11 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/node-logger": "^6.3.12",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.3.12"
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
   }
 }

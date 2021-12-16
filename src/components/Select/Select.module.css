@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.list {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    left: 0;
+    background: rgba(205,205,205,1);
+    border-radius: 20px;
+}
+
+.list li {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.list li:hover {
+    background: dodgerblue;
+    cursor: pointer;
+}
+
+.list ul {
+    padding-left: 0;
+}
+
+.select {
+    width: 200px;
+    background: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.list li.inputSelect input {
+    width: 90%;
+}
+
+.list li.inputSelect:hover {
+    cursor: default;
+    background: transparent;
+}

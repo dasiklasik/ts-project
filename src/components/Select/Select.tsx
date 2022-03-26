@@ -8,25 +8,25 @@ type selectPropsType = {
     onSelectChange: (item: itemType) => void
     items: itemType[]
     sortItems: (value: string) => void
-    on: boolean
-    setOn: (on: boolean) => void
 }
 
 export const Select = (props: selectPropsType) => {
 
+    let [on, setOn] = useState(false);
 
     const onClickHandler = () => {
-        props.setOn(!props.on)
+        setOn(!on)
     }
+
 
     return (
         <div className={s.select}>
             <div onClick={onClickHandler} className={s.main}>{props.value.title}</div>
             <div className={s.wrapper}>
-                {props.on ? <SelectBody
+                {on ? <SelectBody
                     sortItems={props.sortItems}
                     items={props.items}
-                    changeSelectValue={props.changeSelectValue} setOn={props.setOn}/> : null}
+                    changeSelectValue={props.changeSelectValue} setOn={setOn}/> : null}
             </div>
         </div>
     )
@@ -42,7 +42,6 @@ type selectBodyPropsType = {
 const SelectBody = (props: selectBodyPropsType) => {
     const [inputValue, setInputValue] = useState('')
     const changeInputValue = (e: ChangeEvent<HTMLInputElement>) => {
-        debugger
         let val = e.currentTarget.value
         setInputValue(val)
         props.sortItems(val)
@@ -50,6 +49,7 @@ const SelectBody = (props: selectBodyPropsType) => {
 
     const onClickHandler = (item: itemType) => {
     props.changeSelectValue(item)
+        props.setOn(false)
     }
 
     return (

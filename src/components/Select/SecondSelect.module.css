@@ -1,0 +1,23 @@
+.select {
+
+    color: white;
+    position: relative;
+    user-select: none;
+}
+
+.select h3 {
+    border: 1px solid #ffffff;
+    display: inline-block;
+    min-width: 300px;
+    margin: 0;
+}
+
+.items {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+}
+
+.hover {
+    background: dodgerblue;
+}

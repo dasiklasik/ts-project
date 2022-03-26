@@ -7,6 +7,7 @@ import {UncontrolledAccordion} from "./UncontrolledAccordion";
 import {UncontrolledRating} from "./UncontrolledRating";
 import {UncontrolledOnOff} from "./UncontrolledOnOff";
 import {Select} from "./Select/Select";
+import {SecondSelect} from "./Select/SecondSelect";
 
 // type ratingValueType = {
 //     ratingValue: 0 | 1 | 2 | 3 | 4| 5
@@ -26,7 +27,6 @@ function App() {
 
     const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
     const [accordionOpen, setAccordionOpen] = useState<boolean>(false)
-    let [on, setOn] = useState(false);
 
 
     let initialItems = [
@@ -54,24 +54,30 @@ function App() {
 
     const changeSelectValue = (item: itemType) => {
         setValue(item)
-        setOn(false)
         setItems(initialItems)
     }
 
 
     return (
         <div>
-            <select name="" id="">
-                <option>1</option>
-                <option>2</option>
-            </select>
-            <Select value={value}
-                    onSelectChange={setValue}
-                    items={items}
-                    sortItems={sortItems}
-                    on={on}
-                    setOn={setOn}
-                    changeSelectValue={changeSelectValue}/>
+            {/*<select>*/}
+            {/*    <option>1</option>*/}
+            {/*    <option>2</option>*/}
+            {/*    <option>2</option>*/}
+            {/*    <option>2</option>*/}
+            {/*    <option>2</option>*/}
+            {/*    <option>2</option>*/}
+            {/*    <option>2</option>*/}
+            {/*    <option>2</option>*/}
+            {/*</select>*/}
+            <SecondSelect changeValue={setValue}
+                          value={value}
+                          items={items}/>
+            {/*<Select value={value}*/}
+            {/*        onSelectChange={setValue}*/}
+            {/*        items={items}*/}
+            {/*        sortItems={sortItems}*/}
+            {/*        changeSelectValue={changeSelectValue}/>*/}
             {/*<UncontrolledOnOff onChange={setOn}/>*/}
             {/*<div>{on.toString()}</div>*/}
             {/*<UncontrolledAccordion title={'Menu'} />*/}

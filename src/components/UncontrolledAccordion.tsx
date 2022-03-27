@@ -1,31 +1,65 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 
 export type AccordionPropsType = {
     title: string,
 }
 
-export function UncontrolledAccordion(props: AccordionPropsType) {
+type actionType = {
+    type: string
+}
+
+type stateType = {
+    open: boolean
+}
+
+const setOpenAC = () => {
+    return {
+        type: 'SET-OPEN',
+    }
+}
+
+const initialState: stateType = {
+    open: false
+}
+
+export const reducer = (state: stateType, action: actionType): stateType => {
+    debugger
+    switch (action.type) {
+        case 'SET-OPEN': {
+            let newState = {...state};
+            return {...newState, open: !newState.open}
+        }
+    }
+
+    return state
+}
+
+
+
+export function  UncontrolledAccordion(props: AccordionPropsType) {
     console.log('Accordion rendering');
-    let [open, setOpen] = useState(false)
+    debugger
+    // let [open, setOpen] = useState(false)
+    const [open, dispatch] = useReducer(reducer, initialState)
 
     return (
         <div>
-            <AccordionTitle title={props.title} setOpen={setOpen} open={open}/>
-            {open && <AccordionBody/>}
+            <AccordionTitle title={props.title} setOpen={dispatch} open={open.open}/>
+            {open.open && <AccordionBody/>}
         </div>
     )
 }
 
 type AccordionTitlePropsType = {
     title: string
-    setOpen: (switcher: boolean) => void
+    setOpen: (switcher: actionType) => void
     open: boolean
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering');
     const onClickHandler = () => {
-        props.setOpen(!props.open)
+        props.setOpen(setOpenAC())
     }
     return <h3 onClick={onClickHandler}>{props.title}</h3>
 }

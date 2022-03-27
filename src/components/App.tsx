@@ -49,6 +49,8 @@ function App() {
 
     }
 
+    let [on, setOn] = useState(false);
+
     const [value, setValue] = useState(items[0])
 
 
@@ -60,19 +62,10 @@ function App() {
 
     return (
         <div>
-            {/*<select>*/}
-            {/*    <option>1</option>*/}
-            {/*    <option>2</option>*/}
-            {/*    <option>2</option>*/}
-            {/*    <option>2</option>*/}
-            {/*    <option>2</option>*/}
-            {/*    <option>2</option>*/}
-            {/*    <option>2</option>*/}
-            {/*    <option>2</option>*/}
-            {/*</select>*/}
-            <SecondSelect changeValue={setValue}
-                          value={value}
-                          items={items}/>
+
+            {/*<SecondSelect changeValue={setValue}*/}
+            {/*              value={value}*/}
+            {/*              items={items}/>*/}
             {/*<Select value={value}*/}
             {/*        onSelectChange={setValue}*/}
             {/*        items={items}*/}
@@ -80,7 +73,7 @@ function App() {
             {/*        changeSelectValue={changeSelectValue}/>*/}
             {/*<UncontrolledOnOff onChange={setOn}/>*/}
             {/*<div>{on.toString()}</div>*/}
-            {/*<UncontrolledAccordion title={'Menu'} />*/}
+            <UncontrolledAccordion title={'Menu'} />
             {/*<UncontrolledRating/>*/}
             {/*<Rating value={ratingValue} setRatingValue={setRatingValue}/>*/}
             {/*<PageTitle title={'This is App component.'} />*/}

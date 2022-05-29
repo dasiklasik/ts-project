@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from "react";
 
-export const UseMemoTest = () => {
+export const DifficultCounting = () => {
 
     const [a, setA] = useState<number>(3)
     const [b, setB] = useState<number>(3)
@@ -45,3 +45,33 @@ export const UseMemoTest = () => {
         </>
     )
 }
+
+
+export const UseMemoTest2 = () => {
+    const [count, setCount] = useState(0)
+    const [users, setUsers] = useState(['Dasha', 'Anna', 'Masha'])
+
+    const increaseMessageCount = () => {
+        setCount(count+1)
+    }
+
+    const newArray = useMemo(() => {
+        return users.filter(u => u.toLowerCase().indexOf('a') > -1)
+    }, [users])
+
+    return (
+        <div>
+            <h2>React.memo demo</h2>
+            <button onClick={increaseMessageCount}>+</button>
+            {count}
+            <Users users={newArray}/>
+        </div>
+    )
+}
+
+const UsersSecret = (props: {users: Array<string>}) => {
+    console.log('Users rendering')
+    return <div>{props.users.map((u, i) => <div key={i}>{u}</div>)}</div>
+}
+
+const Users = React.memo(UsersSecret)

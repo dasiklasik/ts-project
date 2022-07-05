@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {UseStateTest} from "./UseStateTest";
+import {UseEffectClocks, UseEffectTest} from "./UseEffectTest";
 
-ReactDOM.render(<UseStateTest />, document.getElementById('root'));
+ReactDOM.render(<UseEffectClocks />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

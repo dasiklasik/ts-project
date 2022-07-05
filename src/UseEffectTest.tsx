@@ -54,20 +54,50 @@ export const UseEffectClocks = () => {
 
     useEffect(() => {
         setInterval(() => {
-            setTime((state: inStateType):  inStateType=> {
+            setTime((state: inStateType): inStateType => {
                 if (state.seconds < 60) {
                     return {...state, seconds: state.seconds + 1}
                 } else {
                     if (state.minutes < 60) {
-                        return {...state, minutes: state.minutes+1, seconds: 0}
+                        return {...state, minutes: state.minutes + 1, seconds: 0}
                     } else {
-                        return {...state, hours: state.hours+1, minutes: 0, seconds: 0}
+                        return {...state, hours: state.hours + 1, minutes: 0, seconds: 0}
                     }
                 }
             })
         }, 1000)
     }, [])
 
+
+    return (
+        <>
+            <span>{time.hours}:</span>
+            <span>{time.minutes}:</span>
+            <span>{time.seconds}</span>
+        </>
+    )
+}
+
+export const UseEffectClocks2 = () => {
+
+    const [time, setTime] = useState<inStateType>({
+        seconds: 0,
+        minutes: 0,
+        hours: 0,
+    })
+
+    useEffect(() => {
+        setInterval(() => {
+            setTime((state: inStateType) => {
+                let date = new Date()
+                let hours = date.getHours()
+                let minutes = date.getMinutes()
+                let seconds = date.getSeconds()
+
+                return {...state, hours, minutes, seconds}
+            })
+        }, 1000)
+    }, [])
 
     return (
         <>

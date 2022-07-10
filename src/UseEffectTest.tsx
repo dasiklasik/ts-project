@@ -6,11 +6,6 @@ export const UseEffectTest = () => {
 
     const [count, setCount] = useState(0)
 
-
-    // useEffect(() => {
-    //     document.title = 'hello'
-    // })
-
     const changer =
 
         useEffect(() => {
@@ -78,32 +73,3 @@ export const UseEffectClocks = () => {
     )
 }
 
-export const UseEffectClocks2 = () => {
-
-    const [time, setTime] = useState<inStateType>({
-        seconds: 0,
-        minutes: 0,
-        hours: 0,
-    })
-
-    useEffect(() => {
-        setInterval(() => {
-            setTime((state: inStateType) => {
-                let date = new Date()
-                let hours = date.getHours()
-                let minutes = date.getMinutes()
-                let seconds = date.getSeconds()
-
-                return {...state, hours, minutes, seconds}
-            })
-        }, 1000)
-    }, [])
-
-    return (
-        <>
-            <span>{time.hours}:</span>
-            <span>{time.minutes}:</span>
-            <span>{time.seconds}</span>
-        </>
-    )
-}
